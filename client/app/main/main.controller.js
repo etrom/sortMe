@@ -2,11 +2,10 @@
 
 angular.module('sortmeApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+    $scope.things = [];
 
     $http.get('/api/things').success(function(data) {
-      $scope.data = data;
-      console.log($scope.data.data[0].tags)
+      $scope.things = data.data;
     });
 
   });
