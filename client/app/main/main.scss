@@ -32,22 +32,19 @@
 
 .holder {
     position: relative;
-    // overflow: hidden;
-    // clear: both;
+    // overflow: auto;
+    background-color: gray;
+    clear: both;
 }
-// .cardholder {
-//     position: relative;
 
-// }
-.cards {
-    float: left;
+.top, .bottom, .middle {
     position: absolute;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
-    margin: 5px;
+    margin: 25px;
     height: 200px;
-    width: 30%;
+    width: 50%;
 
 }
 .top {
