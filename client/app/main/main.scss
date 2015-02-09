@@ -34,9 +34,7 @@
     height: 300px;
     width: 200px;
     position: relative;
-    // overflow: auto;
-    // background-color: gray;
-    // clear: both;
+    margin-bottom: 60px;
 }
 
 .top, .bottom, .middle {
@@ -64,4 +62,8 @@
     z-index: 0;
     top: 100px;
     background-color: green;
+}
+
+.icon {
+    float: right;
 }
