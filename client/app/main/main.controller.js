@@ -41,26 +41,68 @@ angular.module('sortmeApp')
     }
 
     $scope.changeClass = function($event){
-        if ($event.target.classList[1] === 'top') {
-            // console.log($event.target.className, $event.target.innerHTML)
+        debugger;
+        if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top') {
         }
-         if ($event.target.classList[1] === 'middle' && $scope.click) {
-            console.log($scope.click)
-            console.log(this.getElementByClass("middle"))
-            ///var switched = this.getElementByClass('top') ;
-            this.getElementByClass("middle").className = "top";
-            console.log($event.target.getElementByClass('top'), 'top')
-            $event.target.classList[1] = 'top';
-            $scope.click = false;
-            // var temp = $scope.classtwo; //middle
-            // $scope.classtwo = $scope.classone; //top
-            // $scope.classone = temp; //middle
+        //sitches middle
+         if ($event.target.classList[1]=== 'middle') {
+            var sib = $event.target.parentElement.parentElement.children[0].children[0].className;
+            if(sib === 'middle') {
+                $event.target.parentElement.parentElement.children[1].children[0].className ='top';
+                $event.target.className = 'middle';
+            } else {
+                    $event.target.parentElement.parentElement.children[0].children[0].className = 'middle';
+                    $event.target.className = "top"
+            }
+
         }
-         if ($event.target.classList[1] === 'bottom') {
-            var temp = $scope.classthree; //bottom
-            $scope.classthree = $scope.classone; //
-            $scope.classone = temp;
+        //switches middle
+        if ($event.target.classList[0]=== 'middle') {
+            var sib = $event.target.parentElement.parentElement.children[1].children[0].className;
+                            console.log(sib,'sibling')
+            if (sib === 'middle') {
+               $event.target.parentElement.parentElement.children[0].children[0].className ='middle';
+                $event.target.className = 'top'
+                } else {
+                    $event.target.parentElement.parentElement.children[1].children[0].className = 'middle';
+                    $event.target.className = "top"
+                }
+
         }
+        //switches bottom
+        if ($event.target.classList[1]=== 'bottom') {
+            var sib = $event.target.parentElement.parentElement.children[0].children[0].className;
+            if(sib === 'bottom') {
+                $event.target.parentElement.parentElement.children[2].children[0].className ='top';
+                $event.target.className = 'bottom';
+            } else {
+                    $event.target.parentElement.parentElement.children[0].children[0].className = 'bottom';
+                    $event.target.className = "top"
+            }
+
+        }
+        if ($event.target.classList[0]=== 'bottom') {
+            var sib = $event.target.parentElement.parentElement.children[2].children[0].className;
+                            console.log(sib,'sibling')
+            if (sib === 'bottom') {
+               $event.target.parentElement.parentElement.children[0].children[0].className ='bottom';
+                $event.target.className = 'top'
+                } else {
+                    $event.target.parentElement.parentElement.children[2].children[0].className = 'bottom';
+                    $event.target.className = "top"
+                }
+
+        }
+
+
+        //  if ($event.target.classList[1] === 'bottom'){
+
+
+
+        //  } || $event.target.classList[0]=== 'bottom') {
+        //    $event.target.parentElement.parentElement.children[0].children[0].className = 'bottom';
+        //     $event.target.className = "top"
+        // }
 
     };
 

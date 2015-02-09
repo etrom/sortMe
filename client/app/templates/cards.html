@@ -1,5 +1,5 @@
-<div ng-repeat="i in thing" ng-click="clicked()">
-    <div ng-click="changeClass($event)"  ng-class="{{theClasses[$index]}}">
+<div ng-repeat="i in thing">
+    <div ng-click="changeClass($event)" ng-click="clicked()" ng-class="{{theClasses[$index]}}">
         {{i.name}}
         <br>
         {{i.subType}}
