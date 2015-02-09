@@ -23,22 +23,45 @@
 }
 
 .footer {
+    clear: both;
     text-align: center;
     padding: 30px 0;
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
 }
 
-.three {
-position: absolute;
+.holder {
+    position: relative;
+    // overflow: hidden;
+    // clear: both;
 }
+// .cardholder {
+//     position: relative;
 
-.boxes {
+// }
+.cards {
+    float: left;
+    position: absolute;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
     height: 200px;
-    background-color: white;
+    width: 30%;
 
+}
+.top {
+    top: 20px;
+    background-color: white;
+}
+
+.middle {
+    z-index: -1;
+    top: 60px;
+    background-color: blue;
+}
+.bottom {
+    z-index: -2;
+    top: 100px;
+    background-color: green;
 }
