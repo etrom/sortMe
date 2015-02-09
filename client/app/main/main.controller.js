@@ -22,31 +22,41 @@ angular.module('sortmeApp')
     //gets the JSON data
     $http.get('/api/things').success(function(data) {
         $scope.data = data.data;
-        console.log($scope.data, 'data')
+        // console.log($scope.data, 'data')
         $scope.things = $scope.data.cut(3);
-        console.log($scope.things, 'things')
+        // console.log($scope.things, 'things')
     });
 
     $scope.openModal = function() {
 
     }
     $scope.theClasses = ["classone", "classtwo", "classthree"];
-    console.log($scope.theClasses)
+
     $scope.classone = "top";
     $scope.classtwo = "middle";
     $scope.classthree = "bottom";
+    $scope.click = false;
+    $scope.clicked= function(){
+        $scope.click = true;
+    }
 
     $scope.changeClass = function($event){
-        if ($event.currentTarget.className === 'top') {
-            console.log('ing')
-            console.log($event.currentTarget.className, $event.currentTarget.innerHTML)
+        if ($event.target.classList[1] === 'top') {
+            // console.log($event.target.className, $event.target.innerHTML)
         }
-         if ($event.currentTarget.className === 'middle') {
-            var temp = $scope.classtwo; //middle
-            $scope.classtwo = $scope.classone; //top
-            $scope.classone = temp; //middle
+         if ($event.target.classList[1] === 'middle' && $scope.click) {
+            console.log($scope.click)
+            console.log(this.getElementByClass("middle"))
+            ///var switched = this.getElementByClass('top') ;
+            this.getElementByClass("middle").className = "top";
+            console.log($event.target.getElementByClass('top'), 'top')
+            $event.target.classList[1] = 'top';
+            $scope.click = false;
+            // var temp = $scope.classtwo; //middle
+            // $scope.classtwo = $scope.classone; //top
+            // $scope.classone = temp; //middle
         }
-         if ($event.currentTarget.className === 'bottom') {
+         if ($event.target.classList[1] === 'bottom') {
             var temp = $scope.classthree; //bottom
             $scope.classthree = $scope.classone; //
             $scope.classone = temp;

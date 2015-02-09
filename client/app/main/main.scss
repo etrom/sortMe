@@ -31,9 +31,11 @@
 }
 
 .holder {
+    height: 300px;
+    width: 200px;
     position: relative;
     // overflow: auto;
-    background-color: gray;
+    // background-color: gray;
     clear: both;
 }
 
@@ -44,7 +46,7 @@
     padding: 10px;
     margin: 25px;
     height: 200px;
-    width: 50%;
+    width: 200px;
 
 }
 .top {
