@@ -23,12 +23,22 @@ angular.module('sortmeApp')
     //gets the JSON data
     $http.get('/api/things').success(function(data) {
         $scope.data = data.data;
-        // console.log($scope.data, 'data')
         $scope.things = $scope.data.cut(3);
-        // console.log($scope.things, 'things')
     });
 
+    $scope.promoteToTop = function(stack, idx) {
 
+        var vals = stack.splice(idx, 1);
+        console.log(stack[0], 'the val')
+        if (idx === 2){
+            var temp = stack[0]
+             stack[0] = vals[0];
+            stack[2] = temp;
+
+        } else{
+        stack.splice(0, 0, vals[0]);
+        }
+    }
 
     $scope.theClasses = ["classone", "classtwo", "classthree"];
 
@@ -37,7 +47,6 @@ angular.module('sortmeApp')
     $scope.classthree = "bottom";
 
     // modal functions
-    // $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.open = function (size) {
 
@@ -69,29 +78,29 @@ angular.module('sortmeApp')
     };
     //end modal
 
-    $scope.changeClass = function(theClass, $event) {
-        var sib;
-        if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top'|| $event.target.parentElement.classList === 'top') {
-            debugger;
-            $scope.one = $event.target.children[1].innerText;
-            $scope.two = $event.target.children[2].innerText;
-            $scope.three = $event.target.children[3].innerText;
-            $scope.img = $event.target.children[0].children[0].getAttribute('src');
-            $scope.open('sm');
+    // $scope.changeClass = function(theClass, $event) {
+    //     var sib;
+    //     if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top'|| $event.target.parentElement.classList === 'top') {
+    //         debugger;
+    //         $scope.one = $event.target.children[1].innerText;
+    //         $scope.two = $event.target.children[2].innerText;
+    //         $scope.three = $event.target.children[3].innerText;
+    //         $scope.img = $event.target.children[0].children[0].getAttribute('src');
+    //         $scope.open('sm');
 
 
-        } else {
-            for(var i= 0; i <= 2; i++) {
-                debugger;
-                if ($event.target.parentElement.parentElement.children[i].children[0].classList[1] === 'top'|| $event.target.parentElement.parentElement.children[i].children[0].classList[0] === 'top') {
-                    $event.target.parentElement.parentElement.children[i].children[0].className = $event.target.className;
-                    $event.target.className ='ng-binding top';
-                    break;
-                }
-            }
+    //     } else {
+    //         for(var i= 0; i <= 2; i++) {
+    //             debugger;
+    //             if ($event.target.parentElement.parentElement.children[i].children[0].classList[1] === 'top'|| $event.target.parentElement.parentElement.children[i].children[0].classList[0] === 'top') {
+    //                 $event.target.parentElement.parentElement.children[i].children[0].className = $event.target.className;
+    //                 $event.target.className ='ng-binding top';
+    //                 break;
+    //             }
+    //         }
 
-        }
-    };
+    //     }
+    // };
 
 
 
