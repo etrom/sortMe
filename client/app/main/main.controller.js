@@ -36,7 +36,7 @@ angular.module('sortmeApp')
     $scope.classthree = "bottom";
 
     // modal functions
-    $scope.items = ['item1', 'item2', 'item3'];
+    // $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.open = function (size) {
 
@@ -46,7 +46,10 @@ angular.module('sortmeApp')
       size: size,
       resolve: {
         items: function () {
-          return $scope.items;
+          return $scope.text;
+        },
+        img: function() {
+            return $scope.img;
         }
       }
     });
@@ -62,7 +65,9 @@ angular.module('sortmeApp')
     $scope.changeClass = function(theClass, $event) {
         var sib;
         if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top') {
-
+            debugger;
+            $scope.text = $event.target.innerText;
+            $scope.img = $event.target.children[0].children[0].getAttribute('src');
             $scope.open('sm');
 
 
