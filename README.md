@@ -6,4 +6,4 @@
 - Run: `bower install`
 
 - Run: `grunt serve` 
-- View on 'localhost:9000'
+- View on `localhost:9000`
