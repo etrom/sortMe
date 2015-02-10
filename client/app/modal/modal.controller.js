@@ -4,7 +4,6 @@ angular.module('sortmeApp')
  .controller('ModalInstanceCtrl', function ($scope, $modalInstance, things) {
 
     $scope.item = things;
-    // debugger;
     console.log($scope.item, 'item')
 
 
