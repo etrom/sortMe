@@ -8,7 +8,7 @@ angular.module('sortmeApp')
         templateUrl: 'app/templates/cards.html'
       }
     })
-  .controller('MainCtrl', function ($scope, $http, $log, $modal ) {
+  .controller('MainCtrl', function ($scope, $http, $log, $modal, $timeout ) {
     $scope.things = [];
 
     Array.prototype.cut = function(cutSize) {
@@ -29,6 +29,7 @@ angular.module('sortmeApp')
     });
 
 
+
     $scope.theClasses = ["classone", "classtwo", "classthree"];
 
     $scope.classone = "top";
@@ -45,8 +46,14 @@ angular.module('sortmeApp')
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
-        items: function () {
-          return $scope.text;
+        one: function () {
+          return $scope.one;
+        },
+        two: function() {
+            return $scope.two;
+        },
+        three: function() {
+            return $scope.three;
         },
         img: function() {
             return $scope.img;
@@ -65,15 +72,18 @@ angular.module('sortmeApp')
     $scope.changeClass = function(theClass, $event) {
         var sib;
         if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top') {
-            debugger;
-            $scope.text = $event.target.innerText;
+            // debugger;
+            $scope.one = $event.target.children[1].innerText;
+            $scope.two = $event.target.children[2].innerText;
+            $scope.three = $event.target.children[3].innerText;
             $scope.img = $event.target.children[0].children[0].getAttribute('src');
             $scope.open('sm');
 
 
         } else {
             for(var i= 0; i <= 2; i++) {
-                if ($event.target.parentElement.parentElement.children[i].children[0].classList[1] === 'top') {
+                // debugger;
+                if ($event.target.parentElement.parentElement.children[i].children[0].classList[1] === 'top'|| $event.target.parentElement.parentElement.children[i].children[0].classList[0] === 'top') {
                     $event.target.parentElement.parentElement.children[i].children[0].className = $event.target.className;
                     $event.target.className ='ng-binding top';
                     break;
