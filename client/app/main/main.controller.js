@@ -7,7 +7,7 @@ angular.module('sortmeApp')
         templateUrl: 'app/templates/cards.html'
       }
     })
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $log) {
     $scope.things = [];
 
     Array.prototype.cut = function(cutSize) {
@@ -27,9 +27,8 @@ angular.module('sortmeApp')
         // console.log($scope.things, 'things')
     });
 
-    $scope.openModal = function() {
 
-    }
+
     $scope.theClasses = ["classone", "classtwo", "classthree"];
 
     $scope.classone = "top";
@@ -37,76 +36,28 @@ angular.module('sortmeApp')
     $scope.classthree = "bottom";
 
 
-    $scope.changeClass = function($event) {
+
+
+    $scope.changeClass = function(theClass, $event) {
         var sib;
         if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top') {
 
-        }
-        //sitches middle
-        if ($event.target.classList[1] === 'middle') {
 
-            sib = $event.target.parentElement.parentElement.children[0].children[0].className;
-            if(sib === 'middle') {
-                $event.target.parentElement.parentElement.children[1].children[0].className ='top';
-                $event.target.className = 'middle';
-            } else if(sib === 'bottom') {
-                $event.target.parentElement.parentElement.children[2].children[0].className = 'middle';
-                $event.target.className = 'top';
-            } else {
-                $event.target.parentElement.parentElement.children[0].children[0].className = 'middle';
-                $event.target.className = "top"
-            }
-        }
-        //switches middle
-        if ($event.target.classList[0]=== 'middle') {
-             sib = $event.target.parentElement.parentElement.children[1].children[0].className;
-            if (sib === 'middle') {
-               $event.target.parentElement.parentElement.children[0].children[0].className ='middle';
-                $event.target.className = 'top'
-            } else if(sib === 'bottom') {
-                $event.target.parentElement.parentElement.children[2].children[0].className = 'middle';
-                $event.target.className = 'top';
-            } else {
-                $event.target.parentElement.parentElement.children[1].children[0].className = 'middle';
-                $event.target.className = "top"
-            }
-        }
-        //switches bottom
-        if ($event.target.classList[1]=== 'bottom') {
-             sib = $event.target.parentElement.parentElement.children[0].children[0].className;
-            if(sib === 'bottom') {
-                $event.target.parentElement.parentElement.children[2].children[0].className ='top';
-                $event.target.className = 'bottom';
-            } else if(sib === 'middle') {
-                $event.target.parentElement.parentElement.children[1].children[0].className = 'bottom'
-                $event.target.className = 'top';
-            } else {
-                $event.target.parentElement.parentElement.children[0].children[0].className = 'bottom';
-                $event.target.className = "top"
-            }
-        }
-        //switches bottom
-        if ($event.target.classList[0] === 'bottom') {
-            debugger;
-             sib = $event.target.parentElement.parentElement.children[1].children[0].className;
-            if (sib === 'bottom' && $event.target.className !== sib) {
-                $event.target.parentElement.parentElement.children[1].children[0].className ='bottom';
-                // $event.target.parentElement.parentElement.children[0].children[0].className ='middle';
-                $event.target.className = 'top'
-
-            } else if(sib === 'middle' && $event.target.className !== $event.target.parentElement.parentElement.children[0].children[0].className) {
-                $event.target.parentElement.parentElement.children[0].children[0].className = 'bottom'
-                $event.target.className = 'top';
-            } else {
-                $event.target.parentElement.parentElement.children[2].children[0].className = 'bottom';
-                $event.target.className = "top"
-            }
+            $scope.openModal();
 
 
+        } else {
+            for(var i= 0; i <= 2; i++) {
+                if ($event.target.parentElement.parentElement.children[i].children[0].classList[1] === 'top') {
+                    $event.target.parentElement.parentElement.children[i].children[0].className = $event.target.className;
+                    $event.target.className ='ng-binding top';
+                    break;
+                }
+            }
 
         }
     };
-
+  // modal functions
 
 
 

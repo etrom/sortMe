@@ -1,5 +1,5 @@
 <div ng-repeat="i in thing">
-    <div ng-click="changeClass($event)" ng-class="{{theClasses[$index]}}">
+    <div ng-click="changeClass(theClasses[$index], $event)" ng-class="{{theClasses[$index]}}">
         <div ng-if="i.subType === 'Lecture'">
             <img class="icon" src='assets/images/triangle.png'>
         </div>
