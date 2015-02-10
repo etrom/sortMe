@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('sortmeApp')
+
   .directive('ngCards', function() {
       return {
         restrict: 'A',
         templateUrl: 'app/templates/cards.html'
       }
     })
-  .controller('MainCtrl', function ($scope, $http, $log) {
+  .controller('MainCtrl', function ($scope, $http, $log, $modal ) {
     $scope.things = [];
 
     Array.prototype.cut = function(cutSize) {
@@ -28,22 +29,41 @@ angular.module('sortmeApp')
     });
 
 
-
     $scope.theClasses = ["classone", "classtwo", "classthree"];
 
     $scope.classone = "top";
     $scope.classtwo = "middle";
     $scope.classthree = "bottom";
 
+    // modal functions
+    $scope.items = ['item1', 'item2', 'item3'];
 
+    $scope.open = function (size) {
 
+    var modalInstance = $modal.open({
+      templateUrl: 'app/templates/myModal.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+    };
+    //end modal
 
     $scope.changeClass = function(theClass, $event) {
         var sib;
         if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top') {
 
-
-            $scope.openModal();
+            $scope.open('sm');
 
 
         } else {
@@ -57,8 +77,8 @@ angular.module('sortmeApp')
 
         }
     };
-  // modal functions
 
 
 
   });
+
