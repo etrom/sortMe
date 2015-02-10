@@ -11,9 +11,7 @@
 
 var _ = require('lodash');
 var fs = require('fs');
-
-var filePath = '/Users/Bly_360/programs/interviewPrep/sortme/bubbles.json'
-// Get list of things
+var filePath =  '../sortme/bubbles.json'
 exports.index = function(req, res) {
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
