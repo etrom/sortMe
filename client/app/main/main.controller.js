@@ -8,6 +8,12 @@ angular.module('sortmeApp')
         templateUrl: 'app/templates/cards.html'
       }
     })
+  .directive('ngShapes', function() {
+      return {
+        restrict: 'A',
+        templateUrl: 'app/templates/shapes.html'
+      }
+    })
   .controller('MainCtrl', function ($scope, $http, $log, $modal, $timeout ) {
     $scope.things = [];
 
@@ -40,32 +46,18 @@ angular.module('sortmeApp')
         }
     }
 
-    $scope.theClasses = ["classone", "classtwo", "classthree"];
-
-    $scope.classone = "top";
-    $scope.classtwo = "middle";
-    $scope.classthree = "bottom";
 
     // modal functions
 
-    $scope.open = function (size) {
-
+    $scope.open = function (size, item) {
+        debugger;
     var modalInstance = $modal.open({
       templateUrl: 'app/templates/myModal.html',
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
-        one: function () {
-          return $scope.one;
-        },
-        two: function() {
-            return $scope.two;
-        },
-        three: function() {
-            return $scope.three;
-        },
-        img: function() {
-            return $scope.img;
+        things: function () {
+          return item;
         }
       }
     });
@@ -77,32 +69,6 @@ angular.module('sortmeApp')
     });
     };
     //end modal
-
-    // $scope.changeClass = function(theClass, $event) {
-    //     var sib;
-    //     if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top'|| $event.target.parentElement.classList === 'top') {
-    //         debugger;
-    //         $scope.one = $event.target.children[1].innerText;
-    //         $scope.two = $event.target.children[2].innerText;
-    //         $scope.three = $event.target.children[3].innerText;
-    //         $scope.img = $event.target.children[0].children[0].getAttribute('src');
-    //         $scope.open('sm');
-
-
-    //     } else {
-    //         for(var i= 0; i <= 2; i++) {
-    //             debugger;
-    //             if ($event.target.parentElement.parentElement.children[i].children[0].classList[1] === 'top'|| $event.target.parentElement.parentElement.children[i].children[0].classList[0] === 'top') {
-    //                 $event.target.parentElement.parentElement.children[i].children[0].className = $event.target.className;
-    //                 $event.target.className ='ng-binding top';
-    //                 break;
-    //             }
-    //         }
-
-    //     }
-    // };
-
-
 
   });
 

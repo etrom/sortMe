@@ -1,61 +1,22 @@
 <div ng-repeat="item in thing">
 
-
-
-<!--     <div ng-click="changeClass(theClasses[$index], $event)" ng-class="{{theClasses[$index]}}">
-
- -->
-    <div class="top" ng-show="$index == 0" ng-click="open()">
-         <div ng-if="item.subType === 'Lecture'">
-            <img class="icon" src='assets/images/triangle.png'>
-        </div>
-        <div ng-if="item.subType === 'Show'">
-            <img class="icon" src='assets/images/circle.png'>
-        </div>
-        <div class="icon" ng-if="item.subType === 'Award Nominee'">
-            <img class="icon" src='assets/images/square.png'>
-        </div>
+    <div class="top" ng-show="$index == 0" ng-click="open('sm', item)">
+        <div ng-shapes></div>
         <p>{{item.name}}</p>
         <p>{{item.subType}}</p>
         <p>{{item.shortDescription}}</p>
     </div>
     <div class="middle" ng-show="$index === 1" ng-click="promoteToTop(thing, $index)">
-         <div ng-if="item.subType === 'Lecture'">
-            <img class="icon" src='assets/images/triangle.png'>
-        </div>
-        <div ng-if="item.subType === 'Show'">
-            <img class="icon" src='assets/images/circle.png'>
-        </div>
-        <div class="icon" ng-if="item.subType === 'Award Nominee'">
-            <img class="icon" src='assets/images/square.png'>
-        </div>
+        <div ng-shapes></div>
         <p>{{item.name}}</p>
         <p>{{item.subType}}</p>
         <p>{{item.shortDescription}}</p>
     </div>
     <div class="bottom" ng-show="$index === 2" ng-click="promoteToTop(thing, $index)">
-         <div ng-if="item.subType === 'Lecture'">
-            <img class="icon" src='assets/images/triangle.png'>
-        </div>
-        <div ng-if="item.subType === 'Show'">
-            <img class="icon" src='assets/images/circle.png'>
-        </div>
-        <div class="icon" ng-if="item.subType === 'Award Nominee'">
-            <img class="icon" src='assets/images/square.png'>
-        </div>
+        <div ng-shapes></div>
         <p>{{item.name}}</p>
         <p>{{item.subType}}</p>
         <p>{{item.shortDescription}}</p>
     </div>
-       <!--   <div ng-if="item.subType === 'Lecture'">
-            <img class="icon" src='assets/images/triangle.png'>
-        </div>
-        <div ng-if="item.subType === 'Show'">
-            <img class="icon" src='assets/images/circle.png'>
-        </div>
-        <div class="icon" ng-if="item.subType === 'Award Nominee'">
-            <img class="icon" src='assets/images/square.png'>
-        </div> -->
-
 
 </div>
