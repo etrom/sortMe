@@ -71,8 +71,8 @@ angular.module('sortmeApp')
 
     $scope.changeClass = function(theClass, $event) {
         var sib;
-        if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top') {
-            // debugger;
+        if ($event.target.classList[1]  === 'top' || $event.target.classList[0]  === 'top'|| $event.target.parentElement.classList === 'top') {
+            debugger;
             $scope.one = $event.target.children[1].innerText;
             $scope.two = $event.target.children[2].innerText;
             $scope.three = $event.target.children[3].innerText;
@@ -82,7 +82,7 @@ angular.module('sortmeApp')
 
         } else {
             for(var i= 0; i <= 2; i++) {
-                // debugger;
+                debugger;
                 if ($event.target.parentElement.parentElement.children[i].children[0].classList[1] === 'top'|| $event.target.parentElement.parentElement.children[i].children[0].classList[0] === 'top') {
                     $event.target.parentElement.parentElement.children[i].children[0].className = $event.target.className;
                     $event.target.className ='ng-binding top';
