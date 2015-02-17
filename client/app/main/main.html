@@ -11,7 +11,9 @@
 <div class="container ">
   <div class="row">
     <div class="col-lg-12">
-       <div class="col-md-6 col-lg-6 col-sm-12" ng-repeat="thing in things">
+      <div class="search"> Search: <input onfocus="this.placeholder = ''" onclick="this.placeholder = ''" placeholder="enter a search term" ng-model="searchText"> <button class="btn btn-success" ng-click="reCut(searchText)">submit</button><button class="btn btn-primary" ng-click="model('')">reset</button>
+        <hr>
+        <div class="col-md-6 col-lg-6 col-sm-12" ng-repeat="thing in things">
           <div class="holder" ng-cards></div>
         </div>
       </div>

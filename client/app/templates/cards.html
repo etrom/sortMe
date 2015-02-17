@@ -1,4 +1,29 @@
-<div ng-repeat="item in thing">
+
+<div id="searchTextResults">
+    <div ng-if='searchText' ng-repeat="item in thing">
+        <div class="top" ng-show="$index == 0" ng-click="open('sm', item)">
+            <div ng-shapes></div>
+            <p>{{item.name}}</p>
+            <p>{{item.subType}}</p>
+            <p>{{item.shortDescription}}</p>
+        </div>
+        <div class="middle" ng-show="$index === 1" ng-click="promoteToTop(thing, $index)">
+            <div ng-shapes></div>
+            <p>{{item.name}}</p>
+            <p>{{item.subType}}</p>
+            <p>{{item.shortDescription}}</p>
+        </div>
+        <div class="bottom" ng-show="$index === 2" ng-click="promoteToTop(thing, $index)">
+            <div ng-shapes></div>
+            <p>{{item.name}}</p>
+            <p>{{item.subType}}</p>
+            <p>{{item.shortDescription}}</p>
+        </div>
+
+  </div>
+</div>
+
+<div ng-if='!searchText' ng-repeat="item in thing">
 
     <div class="top" ng-show="$index == 0" ng-click="open('sm', item)">
         <div ng-shapes></div>
