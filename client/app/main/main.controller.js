@@ -34,7 +34,6 @@ angular.module('sortmeApp')
 
     $scope.promoteToTop = function(stack, idx) {
         var vals = stack.splice(idx, 1);
-        console.log(stack[0], 'the val')
         if (idx === 2) {
             var temp = stack[0]
              stack[0] = vals[0];
