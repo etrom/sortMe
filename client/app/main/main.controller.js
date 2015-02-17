@@ -44,6 +44,7 @@ angular.module('sortmeApp')
     }
 
 
+
     // modal functions
     $scope.open = function (size, item) {
     var modalInstance = $modal.open({
