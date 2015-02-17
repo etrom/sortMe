@@ -11,13 +11,8 @@
 
 var _ = require('lodash');
 var fs = require('fs');
-<<<<<<< HEAD
 var filePath =  '/app/bubbles.json'; // for heroku
 // var filePath =  './bubbles.json'; //for localhost
-=======
-// var filePath =  '/app/bubbles.json'; // for heroku
-var filePath =  './bubbles.json'; //for localhost
->>>>>>> master
 exports.index = function(req, res) {
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
