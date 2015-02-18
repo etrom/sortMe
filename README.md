@@ -1,13 +1,11 @@
 ##Objective
 
-Stack the data by groups of three and move the chosen card to the top.
+-Stack the data by groups of three and move the selected card to the top.
+-Be able to view the top card in a modal
+-Provide search options
 
-## Getting started
 
-- Clone the repo, from there 
+[view it on heroku](https://sortme.herokuapp.com/)
 
-- Run: `npm install`
-- Run: `bower install`
 
-- Run: `grunt serve` 
-- View on `localhost:9000`
+
